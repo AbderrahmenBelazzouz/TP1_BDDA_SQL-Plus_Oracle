@@ -1,0 +1,54 @@
+sqlplus /@bdd1 as sysdba
+
+avant de créer un user :
+alter session set "_ORACLE_SCRIPT"=true;
+
+create user abdou identified by aaa;
+
+grant all privileges to abdou;
+
+connect abdou@bdd1
+aaa
+
+create table etudiant (id int, nom varchar(20));
+
+insert into etudiant values(1, 'abderrahmen');
+
+insert into etudiant values(2, 'zaki');
+
+select * from etudiant;
+
+commit; (rollback; pour annuler)
+
+exit
+
+====================================
+
+select from abdou.etudiant;
+
+====================================
+=========sequence====================
+
+create sequence etudiant_sq increment by 1 start with 2 nomaxvalue nocycle cache 10;
+
+insert into etudiant values (etudiant_sq.nextval, 'abada');
+
+select * from etudiant;
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+créer un user et lui associer tous les privilèges:
+
+sqlplus
+
+system
+abbe
+
+create user NAME identified by MDPS;
+
+grant connect to NAME;
+
+grant all privileges to NAME;
+
+
